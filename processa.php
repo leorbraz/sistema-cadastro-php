@@ -1,17 +1,21 @@
 <?php
 
+session_start();
+
 include_once("conexao.php");
 
-$nome = $_POST['nome'];
+/*$nome = $_POST['nome'];
 $email = $_POST['email'];
-$profissao = $_POST['profissao'];
+$profissao = $_POST['profissao'];*/
 
-$sql = "insert into usuarios (nome,email,profissao) values ('$nome','$email','$profissao')";
+$nome = filter_input(INPUT_POST,'nome', FILTER_SANITIZE_SPECIAL_CHARS);
+$email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_EMAIL);
+$profissao= filter_input(INPUT_POST,'profissao', FILTER_SANITIZE_SPECIAL_CHARS);
+
+$sql = "INSERT INTO usuarios (nome, email, profissao, created) VALUES ('$nome','$email','$profissao', NOW())";
 $salvar = mysqli_query($conexao, $sql);
 
-$linhas = mysqli_affected_rows($conexao);
-
-mysqli_close($conexao);
+$row_usuario = mysqli_affected_rows($conexao);
 
 ?>
 
@@ -20,8 +24,8 @@ mysqli_close($conexao);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Inventário</title>
-    <link rel="stylesheet" href="css/estilo-css.css">
+    <title>Sistema Cadastro</title>
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
     <div class="conteiner">
@@ -35,14 +39,26 @@ mysqli_close($conexao);
             <h1 class="title">Confirmação de Cadastro</h1>
             <hr><br><br>
 
+            <?php 
+            if(isset($_SESSION['msg'])){
+                echo $_SESSION['msg'];
+                unset($_SESSION['msg']);
+            }
+                
+            ?>
+
             <div class="subtitle">
                 <?php
 
-                if ($linhas == 1){
-                    echo "Cadastro efetuado com sucesso!";
+                if (mysqli_insert_id($conexao)){
+                    $_SESSION['msg'] = "<p style='margin-left:10px;'> <b>Cadastro efetuado com sucesso!</b></p><br>";
+                    header("Location: index.php");
                 } else {
-                    echo "Cadastro não efetuado. <br> Já existe um usuário com esse email.";
+                    $_SESSION['msg'] = "<p style='margin-left:10px;'> <b>Cadastro não efetuado. <br>Já existe um usuário com esse email.</b></p><br>";
+                    header("Location: index.php");
                 }
+
+                mysqli_close($conexao);
 
                 ?>
             </div>

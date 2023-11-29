@@ -1,11 +1,12 @@
 *{
     margin: 0;
     padding: 0;
+    border-radius: 5px;
 }
 
 a {
     text-decoration: none;
-    color: #fff;
+    color: #ffffff;
 }
 
 body {
@@ -16,7 +17,7 @@ body {
 
 .conteiner {
     margin: auto;
-    width: 1200px;
+    width: 1230px;
     margin-top: 20px;
     padding: 10px;
 }
@@ -27,18 +28,19 @@ nav {
     background-color:  #444;
     float: left;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 15px;
     
 }
 
 section {
-    width: 870px;
+    width: 900px;
     height: relative;
     margin-left: 15px;
     float: left;
     background-color: #fff;
     box-sizing: border-box;
     padding-left: 10px;
+    padding-bottom: 15px;
 }
 
 ul.menu {
@@ -51,19 +53,21 @@ ul.menu li{
     height: 50px;
     line-height: 50px;
     background-color: #777;
-    color: #fff;
+    color: #ffffff;
     margin-top: 5px;
     box-sizing: border-box;
-    padding-left: 10px;
+    padding-left: 18px;
+    border-radius: 5px;
 }
 
 .btn {
     width: 100px;
     height: 30px;
     border: 1px solid #8f8f8f; 
-    background-color: rgb(29, 100, 206);
-    color: #fff;
+    background-color: rgb(135, 137, 145);
+    color: #ffffff;
     cursor: pointer;
+    
 }
 
 .campo {
@@ -75,18 +79,71 @@ ul.menu li{
 }
 
 article {
-    width: 100%;
+    width: 97.5%;
     box-sizing: border-box;
     padding: 10px;
     background-color: #d6d5d5;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-size: 13pt;
+    border-radius: 8px;
 }
 
 .formulario {   
-    margin-bottom:  40px;
+    margin-bottom: 30px;
     margin-left: 15px;
 }
 
 .subtitle{
     margin-bottom: 50px;
+}
+
+.title{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.form{
+    margin-left: 10px;
+}
+
+.print {
+    margin-left: 10px;
+}
+
+.ur{
+    margin-left: 10px;
+}
+
+.caminho{
+    font-size: 10pt;
+    list-style-type: none;
+    text-decoration: none;
+    margin-left: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+ul.menu {
+    list-style-type: none;
+    margin-left: 5px;
+}
+
+ul.menu2 li{
+    width: 75px;
+    height: 30px;
+    line-height: 28px;
+    background-color: #777;
+    color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.divA { 
+    width: 50px;
+}
+
+.divB { 
+    position: absolute;
+    margin-left: 82px;
+    margin-top: -50.9px;
 }
