@@ -8,7 +8,7 @@ $nome = filter_input(INPUT_POST,'nome', FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_EMAIL);
 $profissao= filter_input(INPUT_POST,'profissao', FILTER_SANITIZE_SPECIAL_CHARS);
 
-$sql = "UPDATE usuarios SET nome='$nome', email='$email', profissao='$profissao', modified=NOW() WHERE codigo='$codigo'";
+$sql = "UPDATE usuarios SET nome='$nome', email='$email', profissao='$profissao' WHERE codigo='$codigo'";
 $consulta = mysqli_query($conexao, $sql);
 
 if(mysqli_affected_rows($conexao)){

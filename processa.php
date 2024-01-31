@@ -12,7 +12,7 @@ $nome = filter_input(INPUT_POST,'nome', FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_EMAIL);
 $profissao= filter_input(INPUT_POST,'profissao', FILTER_SANITIZE_SPECIAL_CHARS);
 
-$sql = "INSERT INTO usuarios (nome, email, profissao, created) VALUES ('$nome','$email','$profissao', NOW())";
+$sql = "INSERT INTO usuarios (nome, email, profissao) VALUES ('$nome','$email','$profissao')";
 $salvar = mysqli_query($conexao, $sql);
 
 $row_usuario = mysqli_affected_rows($conexao);
